@@ -26,7 +26,7 @@ void FillArray(double[,] array) {
     {
             for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = randomGen.Next(0, 10) + Math.Round(randomGen.NextDouble(), 1);
+            array[i, j] = randomGen.Next(-10, 10) + Math.Round(randomGen.NextDouble(), 1);
         }
     }
 }
