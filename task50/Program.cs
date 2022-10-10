@@ -29,34 +29,41 @@ Console.Write("i = ");
 int i = int.Parse(Console.ReadLine()!);
 Console.Write("j = ");
 int j = int.Parse(Console.ReadLine()!);
+FindElementAndPrint(array, i, j);
 
-int FindElement(int[,] array, int i, int j){
-    if (i >= array.GetLength(0) 
-        || j >= array.GetLength(1)  
+void FindElementAndPrint(int[,] array, int i, int j)
+{
+    if (i >= array.GetLength(0)
+        || j >= array.GetLength(1)
         || i < 0
-        || j < 0) {
-            return -1;
+        || j < 0)
+    {
+        Console.WriteLine("Такого элемента в массиве нет!");
     }
-    else {
-        return array[i, j];
+    else
+    {
+        Console.WriteLine("Искомый элемент = " + array[i, j]);
     }
 }
 
-void FillArray(int[,] array) {
+
+void FillArray(int[,] array)
+{
     Random randomGen = new Random();
     for (int i = 0; i < array.GetLength(0); i++)
     {
-            for (int j = 0; j < array.GetLength(1); j++)
+        for (int j = 0; j < array.GetLength(1); j++)
         {
             array[i, j] = randomGen.Next(-10, 10);
         }
     }
 }
 
-void PrintArray(int[,] array) {
+void PrintArray(int[,] array)
+{
     for (int i = 0; i < array.GetLength(0); i++)
     {
-            for (int j = 0; j < array.GetLength(1); j++)
+        for (int j = 0; j < array.GetLength(1); j++)
         {
             Console.Write($"{array[i, j]}   ");
         }
