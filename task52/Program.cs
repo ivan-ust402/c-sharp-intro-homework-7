@@ -15,9 +15,46 @@ Console.Write("n = ");
 int n = int.Parse(Console.ReadLine()!);
 
 int[,] array = new int[m, n];
+                
 FillArray(array);
 PrintArray(array);
 
+double[] averageArray = new double[n];
+
+
+FindAverageOfMatrixColumnElements(array, averageArray);
+PrintOneDimentialArray(averageArray);
+
+void PrintOneDimentialArray(double [] array) {
+    Console.WriteLine("");
+    for (int i = 0; i < array.Length; i++)
+    {   
+        if (i < array.Length - 1) {
+            Console.Write($"{array[i]}, ");
+        }
+        else {
+            Console.Write($"{array[i]}");
+        }
+    }
+}
+
+void FindAverageOfMatrixColumnElements(int[,] array, double[] averageArray){
+    for (int i = 0; i < averageArray.Length; i++)
+    {   double sum = 0;
+        for (int j = 0; j < array.GetLength(0); j++)
+        {
+            for (int k = 0; k < array.GetLength(1); k++)
+            {
+                if(i == k) {
+                    sum = sum + array[j, k];
+                }
+            }
+        }
+        int round = (int)Math.Round(sum / array.GetLength(0) * 10, 5);
+        double result = Convert.ToDouble(round) / 10;
+        averageArray[i] = result;
+    }
+}
 
 void FillArray(int[,] array)
 {
