@@ -30,7 +30,17 @@ int i = int.Parse(Console.ReadLine()!);
 Console.Write("j = ");
 int j = int.Parse(Console.ReadLine()!);
 
-
+int FindElement(int[,] array, int i, int j){
+    if (i >= array.GetLength(0) 
+        || j >= array.GetLength(1)  
+        || i < 0
+        || j < 0) {
+            return -1;
+    }
+    else {
+        return array[i, j];
+    }
+}
 
 void FillArray(int[,] array) {
     Random randomGen = new Random();
