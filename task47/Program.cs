@@ -12,12 +12,13 @@ m = 3, n = 4.
 
 Console.Clear();
 Console.WriteLine("Введите размерность массива");
-Console.WriteLine("m = ");
+Console.Write("m = ");
 int m = int.Parse(Console.ReadLine()!);
-Console.WriteLine("n = ");
+Console.Write("n = ");
 int n = int.Parse(Console.ReadLine()!);
 double[,] array = new double[m, n];
 FillArray(array);
+PrintArray(array);
 
 void FillArray(double[,] array) {
     Random randomGen = new Random();
@@ -25,7 +26,18 @@ void FillArray(double[,] array) {
     {
             for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = randomGen.Next(0, 10) + randomGen.NextDouble();
+            array[i, j] = randomGen.Next(0, 10) + Math.Round(randomGen.NextDouble(), 1);
         }
+    }
+}
+
+void PrintArray(double[,] array) {
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+            for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write($"{array[i, j]}   ");
+        }
+        Console.WriteLine();
     }
 }
